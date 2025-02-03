@@ -1,1 +1,75 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
 @import "tailwindcss";
+
+body{
+  padding: 0px 200px;
+  font-family: 'Inter', sans-serif; 
+  min-height: 100vh;
+}
+
+@theme{
+  --color-primary: theme(colors.blue.600);
+  --color-background: #090D1F;
+
+  /* Typography */
+  --typography-h1-size: theme(fontSize.4xl);
+  --typography-h1-weight: theme(fontWeight.bold);
+
+  --typography-h2-size: theme(fontSize.3xl);
+  --typography-h2-weight: theme(fontWeight.bold);
+
+  --typography-h3-size: theme(fontSize.2xl);
+  --typography-h3-weight: theme(fontWeight.bold);
+
+  --typography-h4-size: theme(fontSize.xl);
+  --typography-h4-weight: theme(fontWeight.bold);
+
+  --typography-h5-size: theme(fontSize.lg);
+  --typography-h5-weight: theme(fontWeight.bold);
+
+  --typography-h6-size: theme(fontSize.base);
+  --typography-h6-weight: theme(fontWeight.bold);
+
+  --typography-p-size: theme(fontSize.base);
+  --typography-a-color: theme(colors.black);
+  --typography-ul-style: theme(listStyleType.disc);
+  --typography-ol-style: theme(listStyleType.decimal);
+
+  --typography-blockquote-border: theme(borderWidth.4);
+  --typography-blockquote-color: theme(colors.gray.300);
+  --typography-blockquote-padding: theme(spacing.4);
+
+  --typography-pre-bg: theme(colors.gray.100);
+  --typography-pre-padding: theme(spacing.4);
+  --typography-pre-radius: theme(borderRadius.lg);
+
+  --typography-code-font: theme(fontFamily.mono);
+
+}
+
+
+/* Applying custom variables */
+h1 { font-size: var(--typography-h1-size); font-weight: var(--typography-h1-weight); }
+h2 { font-size: var(--typography-h2-size); font-weight: var(--typography-h2-weight); }
+h3 { font-size: var(--typography-h3-size); font-weight: var(--typography-h3-weight); }
+h4 { font-size: var(--typography-h4-size); font-weight: var(--typography-h4-weight); }
+h5 { font-size: var(--typography-h5-size); font-weight: var(--typography-h5-weight); }
+h6 { font-size: var(--typography-h6-size); font-weight: var(--typography-h6-weight); }
+
+p { font-size: var(--typography-p-size); }
+ul { list-style-type: var(--typography-ul-style); }
+ol { list-style-type: var(--typography-ol-style); }
+
+blockquote {
+  border-left-width: var(--typography-blockquote-border);
+  border-color: var(--typography-blockquote-color);
+  padding-left: var(--typography-blockquote-padding);
+}
+
+pre {
+  background-color: var(--typography-pre-bg);
+  padding: var(--typography-pre-padding);
+  border-radius: var(--typography-pre-radius);
+}
+
+code { font-family: var(--typography-code-font); }
