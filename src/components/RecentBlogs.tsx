@@ -1,6 +1,5 @@
 import blogImage from "../assets/Image.png";
 import Card from "./reuseable/Card";
-import { format } from "date-fns";
 
 const post = {
   id: "68968189cf50c94680fa27dd",

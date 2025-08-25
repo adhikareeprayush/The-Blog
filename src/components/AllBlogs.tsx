@@ -1,5 +1,4 @@
 import blogImage from "../assets/Image.png";
-import viewBlog from "../assets/icons/arrow-up-right.svg";
 import Card from "./reuseable/Card";
 
 const post = {
