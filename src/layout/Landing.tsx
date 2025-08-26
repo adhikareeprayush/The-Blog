@@ -5,7 +5,7 @@ const Landing = () => {
   const { theme } = useTheme();
   return (
     <div
-      className={`px-[140px] py-4 flex flex-col gap-4 ${
+      className={`2xl:px-[140px] px-[40px] py-4 flex flex-col gap-4 ${
         theme === "dark" ? "bg-dark" : ""
       }`}
     >

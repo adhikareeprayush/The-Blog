@@ -44,7 +44,7 @@ const AllBlogs = () => {
   return (
     <div className="flex flex-col w-full mb-4 gap-4">
       <p className="text-xl font-semibold">All blogs</p>
-      <div className="grid grid-cols-3 w-full gap-6">
+      <div className="grid xl:grid-cols-3 sm:grid-cols-2 grid-cols-1 w-full gap-6">
         {Array.from({ length: count }).map((_, idx) => (
           <Card key={idx} type={1} post={post} />
         ))}

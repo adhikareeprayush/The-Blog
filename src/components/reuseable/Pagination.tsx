@@ -5,7 +5,7 @@ const Pagination = () => {
   const paginations = 10;
   const [currentPage, setCurrentPage] = useState<number>(1);
   return (
-    <div className="w-full flex items-center justify-between">
+    <div className="w-full flex items-center justify-between border-t-[1px] border-light py-3">
       <div className="flex items-center gap-2">
         <img src={arrowLeft} alt="" className="size-6" />
         <span className="text-sm text-[#667085]">Previous</span>

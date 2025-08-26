@@ -24,13 +24,18 @@ const navMenus: NavMenus = [
 import moon from "../../assets/icons/moon.png";
 import sun from "../../assets/icons/sun.svg";
 import { useTheme } from "../../provider/ThemeProvider";
+import hamWhite from "../../assets/icons/ham-white.svg";
+import hamBlack from "../../assets/icons/ham-black.svg";
+import { useState } from "react";
+import Sidebar from "./Sidebar";
 
 const Nav = () => {
+  const [sidebar, setSidebar] = useState<boolean>(false);
   const { theme, toggleTheme } = useTheme();
   return (
     <nav className="w-full flex items-center justify-between light:text-dark dark:text-text-white text-[20px]">
       <p className="font-semibold">Your Name</p>
-      <ul className="flex items-center gap-4">
+      <ul className="items-center gap-4 lg:flex hidden">
         {navMenus.map((menu: NavMenu) => {
           return (
             <li key={menu.url}>
@@ -63,6 +68,17 @@ const Nav = () => {
           </button>
         </div>
       </ul>
+      <button
+        onClick={() => setSidebar((prev) => !prev)}
+        className="lg:hidden flex items-center"
+      >
+        {theme === "dark" ? (
+          <img src={hamWhite} alt="" className="size-6" />
+        ) : (
+          <img src={hamBlack} alt="" className="size-6" />
+        )}
+      </button>
+      {sidebar && <Sidebar isOpen={sidebar} setSidebar={setSidebar} />}
     </nav>
   );
 };

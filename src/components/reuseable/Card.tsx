@@ -2,6 +2,8 @@
 import type { Post } from "../../types";
 import viewBlog from "../../assets/icons/arrow-up-right.svg";
 import { format } from "date-fns";
+import viewBlogWhite from "../../assets/icons/arrow-up-right-white.svg";
+import { useTheme } from "../../provider/ThemeProvider";
 
 type CardProps = {
   type: 1 | 2 | 3;
@@ -11,8 +13,8 @@ type CardProps = {
 };
 
 const type1Container = "flex flex-col gap-[32px]";
-const type2Container = "grid grid-cols-2 gap-4 h-full";
-const type3Container = "flex flex-col gap-4";
+const type2Container = "grid md:grid-cols-2 grid-cols-1 gap-4 h-full";
+const type3Container = "grid xl:grid-cols-2 gap-4 h-full grid-cols-1";
 
 const tagsColorPairs = [
   {
@@ -30,6 +32,7 @@ const tagsColorPairs = [
 ];
 
 const Card = (CardDetails: CardProps) => {
+  const { theme } = useTheme();
   const formatDate: (dateString: string) => string = (
     dateString: string
   ): string => {
@@ -59,9 +62,12 @@ const Card = (CardDetails: CardProps) => {
           <h4 className="light:text-text-dark dark:text-white text-2xl font-semibold leading-8">
             {CardDetails.post.title}
           </h4>
-          {!CardDetails.hideView && (
-            <img src={viewBlog} alt="" className="size-6" />
-          )}
+          {!CardDetails.hideView &&
+            (theme === "dark" ? (
+              <img src={viewBlogWhite} alt="" className="size-6" />
+            ) : (
+              <img src={viewBlog} alt="" className="size-6" />
+            ))}
         </div>
         <p className="light:text-text-light dark:text-light line-clamp-3">
           {CardDetails.post.content}
@@ -76,7 +82,6 @@ const Card = (CardDetails: CardProps) => {
                   backgroundColor:
                     tagsColorPairs[idx % tagsColorPairs.length].bg,
                   color: tagsColorPairs[idx % tagsColorPairs.length].text,
-                  // Ensure color does not change with theme by using inline styles only
                 }}
               >
                 {tag}

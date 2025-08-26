@@ -42,15 +42,15 @@ const RecentBlogs = () => {
   return (
     <div className="grid grid-cols-2 w-full gap-5">
       <p className="col-span-2 text-xl font-semibold">Recent blog posts</p>
-      <div className="col-span1">
+      <div className="xl:col-span-1 col-span-2">
         <Card type={1} post={post} />
       </div>
-      <div className="col-span-1 flex flex-col gap-4 w-full h-full justify-between">
+      <div className="xl:col-span-1 col-span-2 flex flex-col gap-4 w-full h-full justify-between">
         <Card type={2} post={post} hideView={true} />
         <Card type={2} post={post} hideView={true} />
       </div>
       <div className="grid grid-cols-1 gap-4 w-full col-span-2 mt-3">
-        <Card type={2} post={post} />
+        <Card type={3} post={post} />
       </div>
     </div>
   );
