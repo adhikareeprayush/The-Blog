@@ -5,7 +5,7 @@ import type { NavMenus, NavMenu } from "../../type";
 const navMenus: NavMenus = [
   {
     name: "Blog",
-    url: "/blog",
+    url: "/",
   },
   {
     name: "About",
@@ -16,8 +16,8 @@ const navMenus: NavMenus = [
     url: "/projects",
   },
   {
-    name: "Newsletter",
-    url: "/newsletter",
+    name: "Login",
+    url: "/login",
   },
 ];
 
@@ -39,7 +39,7 @@ const Nav = () => {
         {navMenus.map((menu: NavMenu) => {
           return (
             <li key={menu.url}>
-              <Link to={`/${menu.url}`}>{menu.name}</Link>
+              <Link to={menu.url}>{menu.name}</Link>
             </li>
           );
         })}

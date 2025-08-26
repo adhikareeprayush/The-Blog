@@ -1,9 +1,9 @@
 import axiosInstance from "./axios";
 
 // Auth Routes
-const registerUser = (formdata: FormData) =>
+const registerUser = (formdata: any) =>
   axiosInstance.post("/auth/register", formdata);
-const loginUser = (formdata: FormData) =>
+const loginUser = (formdata: any) =>
   axiosInstance.post("/auth/login", formdata);
 
 export const authRoutes = { registerUser, loginUser };
@@ -12,7 +12,7 @@ export const authRoutes = { registerUser, loginUser };
 const getMe = () => axiosInstance.get("/users/profile");
 const getPublicUserProfile = (username: string) =>
   axiosInstance.get(`/users/${username}`);
-const updateProfile = (formdata: FormData) =>
+const updateProfile = (formdata: any) =>
   axiosInstance.put("/users/profile", formdata);
 
 export const userRoutes = {
@@ -24,15 +24,14 @@ export const userRoutes = {
 // Post Routes
 const getAllPosts = (page: number, limit: number) =>
   axiosInstance.get(`/posts?page=${page}&limit=${limit}`);
-const createPost = (formdata: FormData) =>
-  axiosInstance.post("/posts", formdata);
+const createPost = (formdata: any) => axiosInstance.post("/posts", formdata);
 const getPost = (postId: string) => axiosInstance.get(`/posts/${postId}`);
-const updatePost = (postId: string, formdata: FormData) =>
+const updatePost = (postId: string, formdata: any) =>
   axiosInstance.put(`/posts/${postId}`, formdata);
 const deletePost = (postId: string) => axiosInstance.delete(`/posts/${postId}`);
 const toggleLike = (postId: string) =>
   axiosInstance.post(`/posts/${postId}/like`);
-const addComment = (postId: string, formdata: FormData) =>
+const addComment = (postId: string, formdata: any) =>
   axiosInstance.post(`/posts/${postId}/comments`, formdata);
 const getMyPosts = (userId: string, includeUnpublished: boolean) =>
   axiosInstance.get(
@@ -95,7 +94,7 @@ export const searchRoutes = {
   searchByAuthor,
 };
 
-const uploadImage = (folder: string, formdata: FormData) =>
+const uploadImage = (folder: string, formdata: any) =>
   axiosInstance.post(`/upload/images/upload?folder=${folder}`, formdata);
 
 export const uploadRoutes = {
