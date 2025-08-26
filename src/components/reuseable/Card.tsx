@@ -11,7 +11,7 @@ type CardProps = {
 };
 
 const type1Container = "flex flex-col gap-[32px]";
-const type2Container = "grid grid-cols-2 gap-4";
+const type2Container = "grid grid-cols-2 gap-4 h-full";
 const type3Container = "flex flex-col gap-4";
 
 const tagsColorPairs = [
@@ -43,36 +43,40 @@ const Card = (CardDetails: CardProps) => {
           : CardDetails.type === 2
           ? type2Container
           : type3Container
-      }`}
+      }
+      `}
     >
       <img
         src={CardDetails.post.bannerImage || undefined}
-        className="h-full object-cover"
+        className="h-full object-cover w-full"
       />
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 h-full">
         <span className="text-purple font-semibold">
           {CardDetails.post.author.name} •{" "}
           {formatDate(CardDetails.post.createdAt.toISOString())}
         </span>
         <div className="flex items-center justify-between w-full">
-          <h4 className="text-text-dark text-2xl font-semibold leading-8">
+          <h4 className="light:text-text-dark dark:text-white text-2xl font-semibold leading-8">
             {CardDetails.post.title}
           </h4>
           {!CardDetails.hideView && (
             <img src={viewBlog} alt="" className="size-6" />
           )}
         </div>
-        <p className="text-text-light">{CardDetails.post.excerpt}</p>
+        <p className="light:text-text-light dark:text-light line-clamp-3">
+          {CardDetails.post.content}
+        </p>
         <div className="flex items-center gap-3">
           {CardDetails.post.tags &&
             CardDetails.post.tags.map((tag, idx) => (
               <span
                 key={idx}
-                className="px-2 py-1 rounded-full text-xs font-medium"
+                className="px-2 py-1 rounded-full text-xs font-medium text-dark"
                 style={{
                   backgroundColor:
                     tagsColorPairs[idx % tagsColorPairs.length].bg,
                   color: tagsColorPairs[idx % tagsColorPairs.length].text,
+                  // Ensure color does not change with theme by using inline styles only
                 }}
               >
                 {tag}

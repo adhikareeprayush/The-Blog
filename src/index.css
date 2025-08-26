@@ -6,8 +6,23 @@
   --color-purple: #6941c6;
   --color-dark: #090d1f;
   --color-text-light: #667085;
+  --color-light: #c0c5d0;
 }
 
 body {
   font-family: "Inter", sans-serif;
+}
+
+@custom-variant dark (&:is(.dark, .dark *));
+
+/* Global styles for smooth theme transitions */
+* {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Set default background for the entire app */
+html {
+  @apply bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100;
 }

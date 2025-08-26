@@ -23,6 +23,7 @@ export interface Pagination {
 export interface Post {
   id: string;
   title: string;
+  content: string;
   excerpt: string;
   bannerImage: null | string;
   isMarkdown: boolean;
